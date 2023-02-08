@@ -1,14 +1,4 @@
-import json
-import os
-import tempfile
-from functools import reduce
-
-from tinydb import TinyDB, Query
 from pymongo import MongoClient
-
-db_dir_path = tempfile.gettempdir()
-db_file_path = os.path.join(db_dir_path, "students.json")
-student_db = TinyDB(db_file_path)
 
 # DB config and init
 connectionString = "mongodb://root:verysecure@127.0.0.1:27017/devopscloud?authSource=admin"
