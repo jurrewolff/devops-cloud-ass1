@@ -3,6 +3,7 @@ services:
   mongo:
     restart: unless-stopped
     image: mongo:6.0.4
+    container_name: mongo
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: verysecure
@@ -12,9 +13,9 @@ services:
 
   student_service:
     image: devopscloud/student_service 
+    container_name: student_service
     restart: unless-stopped
     environment:
-      MONGO_URI: mongodb://mongo:27017
+      MONGO_URI: mongodb://root:verysecure@mongo:27017/devopscloud?authSource=admin
     ports:
       - "8080:8080"
-

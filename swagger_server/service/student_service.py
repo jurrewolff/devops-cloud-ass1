@@ -1,7 +1,9 @@
 from pymongo import MongoClient
 
+import os
+
 # DB config and init
-connectionString = "mongodb://root:verysecure@127.0.0.1:27017/devopscloud?authSource=admin"
+connectionString = os.getenv("MONGO_URI")
 dbClient = MongoClient(connectionString)
 db = dbClient["student"]
 collection = db["info"]
