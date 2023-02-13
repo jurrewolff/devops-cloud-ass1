@@ -12,8 +12,10 @@ services:
       - "27017:27017"
 
   student_service:
-    image: devopscloud/student_service 
+    image: devopscloud/student_service
     container_name: student_service
+    depends_on:
+      - mongo
     restart: unless-stopped
     environment:
       MONGO_URI: mongodb://root:verysecure@mongo:27017/devopscloud?authSource=admin
