@@ -28,7 +28,7 @@ jobs:
     - name: run docker
       run: |
         docker run -d -e 8080:8080 -host=$SERVER_HOST $REPO_NAME/$IMAGE_NAME:latest && \
-          docker run -d -e 27017:27017 -host=$SERVER_HOST mongo:6.0.4 && \
+          docker run -d -e 27017:27017 -host=$SERVER_HOST --name mongo mongo:6.0.4 && \
           docker ps && sleep 5
 
     - name: Run API Tests
