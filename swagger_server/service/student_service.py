@@ -8,10 +8,17 @@ dbClient = MongoClient(connectionString)
 db = dbClient["student"]
 collection = db["info"]
 
+unique_id = 0
+
 
 def add(student=None):
+    global unique_id
+    student.student_id = unique_id
+
     collection.insert_one(student.to_dict())
-    return student.student_id
+
+    unique_id = unique_id + 1
+    return unique_id - 1
 
 
 def get_by_id(student_id=None, subject=None):
