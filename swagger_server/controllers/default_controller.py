@@ -1,7 +1,7 @@
 import connexion
 import six
 
-from swagger_server.models.student import Student  # noqa: E50
+from swagger_server.models.student import Student  # noqa: E501
 from swagger_server import util
 
 from swagger_server.service.student_service import *
@@ -9,9 +9,12 @@ from swagger_server.service.student_service import *
 
 def add_student(body=None):  # noqa: E501
     """Add a new student
+
     Adds an item to the system # noqa: E501
+
     :param body: Student item to add
     :type body: dict | bytes
+
     :rtype: float
     """
     if connexion.request.is_json:
