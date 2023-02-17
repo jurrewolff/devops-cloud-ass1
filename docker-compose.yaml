@@ -12,7 +12,7 @@ services:
       - "27017:27017"
 
   student_service:
-    image: devopscloud/student_service
+    image: jurrewolff/student_service:latest
     container_name: student_service
     depends_on:
       - mongo
