@@ -3,11 +3,11 @@ on: [push]
 env:
   IMAGE_NAME: student_service
   REPO_NAME: jurrewolff
-  SERVER_HOST: "172.17.0.2"
+  SERVER_HOST: "172.17.0.124"
   MONGO_INITDB_ROOT_USERNAME: root
   MONGO_INITDB_ROOT_PASSWORD: verysecure
   MONGO_INITDB_DATABASE: devopscloud
-  MONGO_URI: "mongodb://root:verysecure@172.17.0.2:27017/devopscloud?authSource=admin"
+  MONGO_URI: "mongodb://root:verysecure@172.17.0.124:27017/devopscloud?authSource=admin"
 
 jobs:
   build:

@@ -9,7 +9,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: verysecure
       MONGO_INITDB_DATABASE: devopscloud
     ports:
-      - "172.17.0.2:27017:27017"
+      - "172.17.0.124:27017:27017"
 
   student_service:
     image: jurrewolff/student_service:latest
@@ -18,6 +18,6 @@ services:
       - mongo
     restart: unless-stopped
     environment:
-      MONGO_URI: mongodb://root:verysecure@172.17.0.2:27017/devopscloud?authSource=admin
+      MONGO_URI: mongodb://root:verysecure@172.17.0.124:27017/devopscloud?authSource=admin
     ports:
-      - "172.17.0.2:8080:8080"
+      - "172.17.0.124:8080:8080"
