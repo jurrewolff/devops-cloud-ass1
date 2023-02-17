@@ -27,9 +27,10 @@ jobs:
 
     - name: run docker
       run: |
-        docker run -d -e 27017:27017 -host=172.17.0.2 --name mongo mongo:6.0.4 && sleep 10 && \
-        docker run -d -e 8080:8080 -host=172.17.0.2 --name student_service $REPO_NAME/$IMAGE_NAME:latest && \
-        docker ps && sleep 5 && docker logs mongo
+        docker-compose up -d && sleep 10 && docker ps
+#        docker run -d -e 27017:27017 -host=172.17.0.2 mongo:6.0.4 && sleep 10 && \
+#        docker run -d -e 8080:8080 -host=172.17.0.2 $REPO_NAME/$IMAGE_NAME:latest && \
+#        docker ps && sleep 5 && docker logs mongo
 
     - name: Run API Tests
       id: run-newman
